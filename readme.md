@@ -47,3 +47,9 @@ Similar to how we would use a normal RNN with text data we can use a embedding l
 
 In the attention decoder it would take in the context vector and use its own hidden state and then do the following , it would create a scoring mechanism and give score to each of the hidden units in the context vector and apply a softmax function on the scores. After this each hidden state is multiplied to its softmax score and all the vectors are added to give a context vector for the decoder.
 In a high level the decoder looks at the context vector and its hidden state and produces an output text and a new hidden state this continues till all the time step is over to complete our output sequence.
+
+# Bahdanau Attention and Loung Attention
+
+#### [Bahdanau Attention](https://arxiv.org/abs/1409.0473)
+#### [Loung Attention](https://arxiv.org/abs/1508.04025)
+
