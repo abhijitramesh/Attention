@@ -35,4 +35,5 @@ Similar to a sequence to sequence vector without attention the encoder accepts a
 
 The attention decoder will receive the data from the encoder and it would focus on the hidden vector of the corresponding word the decoder knows to do this focusing since it is pre trained to do so. For example lets say we are creating a french to english translator in this case there are instance where the order of the words would be different in different cases and since the decoder is trained on this patten it knows exactly when to skip words or go back to a word so that it can order it correctly and then it executes the rest sequentially.
 
+![attention_sentence](https://user-images.githubusercontent.com/43090559/84490429-c9596a00-acc0-11ea-91f4-4bee79eb7326.png)
 
