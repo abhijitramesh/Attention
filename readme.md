@@ -53,3 +53,15 @@ In a high level the decoder looks at the context vector and its hidden state and
 #### [Bahdanau Attention](https://arxiv.org/abs/1409.0473)
 #### [Loung Attention](https://arxiv.org/abs/1508.04025)
 
+## Multiplicative attention
+As we have discussed earlier we use a scoring mechanism to to figure out which vector should we be focusing on. For multiplicative attention this scoring is basically dot product.
+
+The dot product between a vector A and another vector B is basically AxBxCos(angle between A and B).
+
+This can be used because cos has a property that it has a range from -1 to 1 depending on the angle between the vectors.
+
+This scoring can be used to find a value and then use this value can pass though a softmax function which we can use to make the context vector.
+
+The input to the context vector is basically the hidden state at that time step and the context vector from the encoder to do scoring we take transpose of the hidden state and then do dot product to the other context vector to maintain dimensionality.
+
+This would work fine for models like summarization bot which would be the same language and same word embedding space but in case of translation bot this will not work out since the word embedding space is different so in order to do scoring here we incorporate a weight matrix to maintain dimensionality in the scoring function.
