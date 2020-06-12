@@ -65,3 +65,7 @@ This scoring can be used to find a value and then use this value can pass though
 The input to the context vector is basically the hidden state at that time step and the context vector from the encoder to do scoring we take transpose of the hidden state and then do dot product to the other context vector to maintain dimensionality.
 
 This would work fine for models like summarization bot which would be the same language and same word embedding space but in case of translation bot this will not work out since the word embedding space is different so in order to do scoring here we incorporate a weight matrix to maintain dimensionality in the scoring function.
+
+## Additive attention
+
+This method uses a feed-forward neural network to do the scoring, this is called concat scoring method. How this basically works is by concatenating the hidden state with the context vector in the first state and then we pass them thorough a simple neural network which has a single hidden layer and this outputs the sore. The parameters of this neural network is learned during the training process. The basic calculation done is we multiply the weight of the neural network to the concatenated vector and then apply tan to this and multiply this to another weight of similar dimension giving us the score. 
