@@ -107,3 +107,33 @@ The Encoder-Decoder attention which allows it to focus on relevant parts of the 
 The Self-attention layer which focus on previous outputs.
 
 In addition to this the decoder also has feed-forward network to generate output sequence.
+
+## How all this works under the hood.
+
+The first step as usual would be to embed the words.
+
+Then we look at the word that we are focusing on and then score that word and relevant other words.
+
+The next step is to scale the score by 
+ 
+ square-root(d <sub>k</sub>)
+
+ Then we do a softmax on these and then we multiply the softmax to the current score and add the resultant vectors up which would produce the self attention context vector.
+
+If we are judging the words based on the embedding this would only look at other similar words after scoring to improve this we need to make a modification.
+
+We create queries to each embedding this can be done by multiplying each embedding to a query matrix or passing through a query feed-forward neural network. 
+
+Then we also create keys.
+
+The Scoring would be done by comparing the Queries and Keys.
+
+Then we scale the score by 
+ square-root(d <sub>k</sub>)
+
+do a softmax and multiply the softmax score by the key.
+
+Then we add all the resultant vector up.
+
+
+
