@@ -136,4 +136,4 @@ do a softmax and multiply the softmax score by the key.
 Then we add all the resultant vector up.
 
 
-
+# [Notebook](https://github.com/abhijitramesh/Attention/blob/master/Attention%20Basics.ipynb)
