@@ -69,3 +69,41 @@ This would work fine for models like summarization bot which would be the same l
 ## Additive attention
 
 This method uses a feed-forward neural network to do the scoring, this is called concat scoring method. How this basically works is by concatenating the hidden state with the context vector in the first state and then we pass them thorough a simple neural network which has a single hidden layer and this outputs the sore. The parameters of this neural network is learned during the training process. The basic calculation done is we multiply the weight of the neural network to the concatenated vector and then apply tan to this and multiply this to another weight of similar dimension giving us the score. 
+
+# The Transformer
+
+This model is for simplifying what attention does by using only attention and no Rnn's.
+
+[attention is all you need](https://arxiv.org/abs/1706.03762)
+
+These models outperformed machine translation models in both quality and requiring significantly less time to train.
+
+The transformer takes in a sequence of input and generates a sequence of output similar to the previous sequence to sequence models that we have seen but the difference is it can generate the inputs parallel all at once compared to generating outputs one by one.
+
+The transformer also includes an Encoder and a Decoder.
+But instead of using RNN's they use feed-forward networks and concept called as Self Attention.
+
+The advantage of this is using paralyzation compared which is not possible when using an RNN.
+
+![1_V2435M1u0tiSOz4nRBfl4g](https://user-images.githubusercontent.com/43090559/84581670-6ae7d500-ae01-11ea-8829-a04026e46c3c.png)
+
+The transformer uses a stack of Encoders and Decoders.
+
+N=6 is what is proposed in the paper linked above.
+
+Each of these encoder consist of two layers 
+
+* A multi headed self-attention layer.
+* A feed-forward layer.
+
+The advantage of using this is that the encoder can focus on other parts of a sentence which is relevant while focusing on one part of the sentence.
+
+This concept comes from research done on the side of self attention.
+
+The Decoder contains two attention components 
+
+The Encoder-Decoder attention which allows it to focus on relevant parts of the input.
+
+The Self-attention layer which focus on previous outputs.
+
+In addition to this the decoder also has feed-forward network to generate output sequence.
